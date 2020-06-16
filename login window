@@ -1,0 +1,51 @@
+from  tkinter import *
+Uname=[]
+Pwd=[]
+
+
+box=Tk()
+
+box.title('login_page !!')
+fr1=Frame(box)
+fr1.pack()
+
+fr2=Frame(box)
+fr2.pack()
+
+fr3=Frame(box)
+fr3.pack()
+
+
+lab1 =Label(fr1,text="Username",bg='red')
+lab1.pack(side="left")
+
+ent1=Entry(fr1,width = 30)
+ent1.pack()
+
+lab2 =Label(fr2,text="Password",bg='blue')
+lab2.pack(side="left")
+
+ent2=Entry(fr2,width = 30)
+ent2.pack()
+ent2.config(show="*")
+
+
+def Buc():
+    a=ent1.get()
+    b=ent2.get()
+    print(a,b)
+    Uname.append(a)
+    Pwd.append(b)
+    ent1.delete(0,END)
+    ent2.delete(0,END)
+def Buc2():
+    print("username's : {0}\n password:{1}".format(Uname,Pwd))
+
+but=Button(fr3,text="submit",command =Buc,bg='green')
+but.pack(side='left')
+
+but2=Button(fr3,text="check",command =Buc2,bg='blue')
+but2.pack(side='right')
+
+box.mainloop()
+
