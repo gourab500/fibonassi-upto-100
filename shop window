@@ -1,0 +1,58 @@
+from tkinter import *
+
+box=Tk()
+box.title('shopping window')
+Avilable_item=['apple','mango','bread','butter']
+print((f"avilable items are:{Avilable_item}"))
+
+fr1=Frame(box)
+fr1.pack()
+fr2=Frame(box)
+fr2.pack()
+fr3=Frame(box)
+fr3.pack()
+
+lab1 =Label(fr1,text="buy",bg='red')
+lab1.pack(side="left")
+
+ent1=Entry(fr1,width = 30)
+ent1.pack()
+
+lab2 =Label(fr2,text="sell",bg='blue')
+lab2.pack(side="left")
+
+ent2=Entry(fr2,width = 30)
+ent2.pack()
+
+
+
+def Buy():
+    a=ent1.get()
+    ent1.delete(0, END)
+    Avilable_item.append(a)
+    print(f'avilable items are :{Avilable_item}')
+
+
+def Sell():
+    b = ent2.get()
+    ent2.delete(0, END)
+    Avilable_item.remove(b)
+    print(f'avilable items are :{Avilable_item}')
+but=Button(fr3,text="buy",command =Buy,bg='green')
+but.pack(side='left')
+
+but2=Button(fr3,text="sell",command =Sell,bg='blue')
+but2.pack(side='right')
+
+
+
+
+from tkinter import messagebox
+
+def msg():
+    m=messagebox.showwarning("do you want to quit","yes or no ?")
+    print(m)
+
+bu=Button(box,text="test check",bg='yellow',command=msg)
+bu.pack()
+box.mainloop()
